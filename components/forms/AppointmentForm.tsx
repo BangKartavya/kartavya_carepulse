@@ -34,7 +34,7 @@ const AppointmentForm = ({userId, patientId, type}: AppoitmentFormProps) => {
         resolver: zodResolver(AppointmentFormValidation),
         defaultValues: {
             primaryPhysician: "",
-            schedule: new Date(),
+            schedule: new Date(Date.now()),
             reason: "",
             note: "",
             cancellationReason: ""
@@ -123,7 +123,7 @@ const AppointmentForm = ({userId, patientId, type}: AppoitmentFormProps) => {
                         <CustomFormField
                             control={form.control}
                             fieldType={FormFieldType.DATE_PICKER}
-                            name="Schedule"
+                            name="schedule"
                             label="Expected Appointment Date"
                             showTimeSelect
                             dateFormat="MM/dd/YYYY - h:mm aa"

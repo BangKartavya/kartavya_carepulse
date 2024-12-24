@@ -2,11 +2,14 @@ import {Button} from "@/components/ui/button";
 import Image from "next/image";
 import PatientForm from "@/components/forms/PatientForm";
 import Link from "next/link";
+import PasskeyModal from "@/components/PasskeyModal";
+import {AlertDialogTrigger} from "@/components/ui/alert-dialog";
 
-const Home = () => {
+const Home = ({searchParams}: SearchParamProps) => {
+    const isAdmin = searchParams.admin === "true";
     return (
         <div className="flex h-screen max-h-screen">
-            {/* TODO OTP */}
+            {isAdmin && <PasskeyModal/>}
             <section className="remove-scrollbar container my-auto">
                 <div className="sub-container max-w-[496px]">
                     <Image
@@ -21,7 +24,7 @@ const Home = () => {
                         <p className="justify-items-end text-dark-600 xl:text-left">
                             © 2024 CarePulse
                         </p>
-                        <Link href="/?admit=true" className="text-green-500">
+                        <Link href="/?admin=true" className="text-green-500">
                             Admin
                         </Link>
                     </div>
