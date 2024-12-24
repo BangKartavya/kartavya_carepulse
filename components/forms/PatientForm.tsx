@@ -9,7 +9,7 @@ import {Form} from "@/components/ui/form";
 import CustomFormField from "@/components/CustomFormField";
 import SubmitButton from "@/components/SubmitButton";
 import {useState} from "react";
-import {userFormValidation} from "@/lib/validation";
+import {AppointmentFormValidation} from "@/lib/validation";
 import {useRouter} from "next/navigation";
 import {createUser} from "@/lib/actions/patient.actions";
 
@@ -26,8 +26,8 @@ export enum FormFieldType {
 const PatientForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
-    const form = useForm<z.infer<typeof userFormValidation>>({
-        resolver: zodResolver(userFormValidation),
+    const form = useForm<z.infer<typeof AppointmentFormValidation>>({
+        resolver: zodResolver(AppointmentFormValidation),
         defaultValues: {
             name: "",
             email: "",
@@ -38,7 +38,7 @@ const PatientForm = () => {
 
 
     // 2. Define a submit handler.
-    const onSubmit = async ({name, email, phone}: z.infer<typeof userFormValidation>) => {
+    const onSubmit = async ({name, email, phone}: z.infer<typeof AppointmentFormValidation>) => {
         setIsLoading(true);
         try {
             const userData = {
@@ -54,7 +54,6 @@ const PatientForm = () => {
         } catch (error) {
             console.log(error);
         }
-        // console.log(values);
     }
 
     return (
