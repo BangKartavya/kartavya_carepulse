@@ -4,12 +4,12 @@ import Image from "next/image";
 import StatCard from '@/components/StatCard';
 import {getRecentAppointmentList} from "@/lib/actions/appointment.actions";
 import DataTable from "@/components/table/DataTable";
-import {columns, Payment} from "@/components/table/columns";
+import {columns} from "@/components/table/columns";
 
 const Admin = async () => {
     const appointments = await getRecentAppointmentList();
     return (
-        <div className="max-auto flex max-w-7xl flex-col space-y-14">
+        <div className="mx-auto flex max-w-7xl flex-col space-y-14">
             <header className="admin-header">
                 <Link href="/" className="cursor-pointer">
                     <Image

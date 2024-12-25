@@ -51,6 +51,7 @@ const RegisterForm = ({user}: { user: User }) => {
 
         try {
             const patientData = {
+                ...PatientFormDefaultValues,
                 ...values,
                 userId: user.$id,
                 birthDate: new Date(values.birthDate),

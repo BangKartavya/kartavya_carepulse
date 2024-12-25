@@ -4,6 +4,7 @@ import "./globals.css";
 import {cn} from "@/lib/utils";
 import {ThemeProvider} from "@/components/theme-provider";
 import React from "react";
+import {Toaster} from "@/components/ui/toaster";
 
 
 const fontSans = Plus_Jakarta_Sans({
@@ -27,6 +28,7 @@ const RootLayout = ({children}: Readonly<{ children: React.ReactNode; }>) => {
                 >
                     {children}
                 </ThemeProvider>
+                <Toaster/>
             </body>
         </html>
     );

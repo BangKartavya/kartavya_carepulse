@@ -16,6 +16,7 @@ import {InputFile} from "node-appwrite/file";
 
 export const createUser = async (user: CreateUserParams) => {
     try {
+
         const newUser = await users.create(
             ID.unique(),
             user.email,
@@ -24,12 +25,13 @@ export const createUser = async (user: CreateUserParams) => {
             user.name
         );
 
+        if (!newUser) throw Error;
 
         return parseStringify(newUser);
     } catch (error: any) {
         if (error && error?.code === 409) {
             const documents = await users.list([
-                Query.equal("email", [user.email])
+                Query.equal("email", [user.email]), Query.equal("phone", [user.phone])
             ]);
 
             return documents?.users[0];

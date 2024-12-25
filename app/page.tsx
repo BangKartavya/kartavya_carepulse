@@ -5,7 +5,8 @@ import Link from "next/link";
 import PasskeyModal from "@/components/PasskeyModal";
 import {AlertDialogTrigger} from "@/components/ui/alert-dialog";
 
-const Home = ({searchParams}: SearchParamProps) => {
+const Home = async ({searchParams}: SearchParamProps) => {
+    searchParams = await searchParams;
     const isAdmin = searchParams.admin === "true";
     return (
         <div className="flex h-screen max-h-screen">

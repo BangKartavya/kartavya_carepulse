@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {zodResolver} from "@hookform/resolvers/zod"
 import {useForm} from "react-hook-form"
@@ -11,6 +11,7 @@ import {useState} from "react";
 import {UserFormValidation} from "@/lib/validation";
 import {useRouter} from "next/navigation";
 import {createUser} from "@/lib/actions/patient.actions";
+import {useToast} from "@/hooks/use-toast";
 
 export enum FormFieldType {
     INPUT = "input",
@@ -25,6 +26,8 @@ export enum FormFieldType {
 const PatientForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const {toast} = useToast();
+
     const form = useForm<z.infer<typeof UserFormValidation>>({
         resolver: zodResolver(UserFormValidation),
         defaultValues: {
@@ -49,6 +52,13 @@ const PatientForm = () => {
             const user = await createUser(userData);
 
             if (user) router.push(`/patients/${user.$id}/register`);
+            else {
+                return toast({
+                    title: "Registration Failed",
+                    description: "Try again later",
+                    className: "bg-dark-100"
+                })
+            }
 
         } catch (error) {
             console.log(error);
