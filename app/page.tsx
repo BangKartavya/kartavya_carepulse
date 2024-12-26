@@ -1,9 +1,7 @@
-import {Button} from "@/components/ui/button";
 import Image from "next/image";
 import PatientForm from "@/components/forms/PatientForm";
 import Link from "next/link";
 import PasskeyModal from "@/components/PasskeyModal";
-import {AlertDialogTrigger} from "@/components/ui/alert-dialog";
 
 const Home = async ({searchParams}: SearchParamProps) => {
     searchParams = await searchParams;
