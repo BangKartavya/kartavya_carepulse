@@ -10,7 +10,6 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import {Button} from "@/components/ui/button";
-import {clsx} from "clsx";
 import AppointmentForm from './forms/AppointmentForm';
 import {Appointment} from "@/types/appwrite.types";
 
