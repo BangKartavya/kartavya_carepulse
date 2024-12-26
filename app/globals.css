@@ -93,6 +93,7 @@
     .admin-stat {
         @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
     }
+
     /* ==== FORM */
     .radio-group {
         @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;

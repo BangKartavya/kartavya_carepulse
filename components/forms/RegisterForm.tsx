@@ -317,7 +317,7 @@ const RegisterForm = ({user}: { user: User }) => {
                 <CustomFormField
                     control={form.control}
                     fieldType={FormFieldType.CHECKBOX}
-                    name="privacyConsent"
+                    name="userConsent"
                     label="I Consent to Privacy Policy"
                 />
                 <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
